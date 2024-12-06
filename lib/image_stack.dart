@@ -3,6 +3,7 @@ library image_stack;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 /// Creates an array of circular images stacked over each other
 class ImageStack extends StatelessWidget {
@@ -275,10 +276,7 @@ class ImageStack extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          image: DecorationImage(
-            image: imageProvider,
-            fit: BoxFit.cover,
-          ),
+          image: CachedNetworkImageProvider(imageProvider),
         ),
       ),
     );
