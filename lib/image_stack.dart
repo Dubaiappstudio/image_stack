@@ -2,8 +2,8 @@ library image_stack;
 
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 
 /// Creates an array of circular images stacked over each other
 class ImageStack extends StatelessWidget {
@@ -154,8 +154,7 @@ class ImageStack extends StatelessWidget {
     var items = List.from(imageList)
       ..addAll(children)
       ..addAll(providers);
-    int size =
-        min(children.length > 0 ? widgetCount! : imageCount!, items.length);
+    int size = min(children.length > 0 ? widgetCount! : imageCount!, items.length);
     var widgetList = items
         .sublist(0, size)
         .asMap()
@@ -182,16 +181,13 @@ class ImageStack extends StatelessWidget {
           Container(
               child: showTotalCount && totalCount - widgetList.length > 0
                   ? Container(
-                      constraints: BoxConstraints(
-                          minWidth: imageRadius! - imageBorderWidth!),
+                      constraints: BoxConstraints(minWidth: imageRadius! - imageBorderWidth!),
                       padding: EdgeInsets.all(3),
                       height: (imageRadius! - imageBorderWidth!),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              imageRadius! - imageBorderWidth!),
-                          border: Border.all(
-                              color: extraCountBorderColor ?? imageBorderColor!,
-                              width: imageBorderWidth!),
+                          borderRadius: BorderRadius.circular(imageRadius! - imageBorderWidth!),
+                          border:
+                              Border.all(color: extraCountBorderColor ?? imageBorderColor!, width: imageBorderWidth!),
                           color: backgroundColor),
                       child: Center(
                         child: Text(
@@ -252,11 +248,10 @@ class ImageStack extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          image: CachedNetworkImageProvider(imageUrl),
-          // DecorationImage(
-            // image: imageProvider(imageUrl),
-            // fit: BoxFit.cover,
-          // ),
+          image: DecorationImage(
+            image: CachedNetworkImageProvider(imageUrl),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
