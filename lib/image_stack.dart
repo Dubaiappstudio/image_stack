@@ -253,9 +253,13 @@ class ImageStack extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: imageProvider(imageUrl),
+            image: imageProvider,
             fit: BoxFit.cover,
           ),
+          // DecorationImage(
+            // image: imageProvider(imageUrl),
+            // fit: BoxFit.cover,
+          // ),
         ),
       ),
     );
@@ -276,7 +280,10 @@ class ImageStack extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          image: CachedNetworkImageProvider(imageProvider),
+          image: DecorationImage(
+            image: imageProvider,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
